@@ -16,6 +16,8 @@ import expensesc.Dao.ExpensesDao;
 import expensesc.Dao.ExpensesDaoImpl;
 import expensesc.Model.Expenses;
 import expensesc.View.FormExpenses;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import javax.swing.table.DefaultTableModel;
 
@@ -303,6 +305,34 @@ public class Conntroller {
         dao.Ksaldo(ex);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(form, e);
+        }
+    }
+    
+    public void bBulanan() {
+        try {
+            LocalDate date = LocalDate.now();
+            DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy-MM");
+            String Tanggal = date.format(format);
+            String column = form.getCboCari().getSelectedItem().toString();
+            String searchTerm = form.getTxtCari().getText();
+            String username = expensesc.Model.UsserSession.getUser();
+            String sql = "SELECT SUM(total_harga) AS total_amount FROM expenses WHERE date LIKE '%" + Tanggal
+                    + "%' AND username = '"+username+"'";
+            PreparedStatement ps = cn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            double totalAmount = 0.0;
+            if (rs.next()) {
+                totalAmount = rs.getDouble("total_amount");
+            }
+
+            NumberFormat formatCurrency = NumberFormat.getCurrencyInstance(new Locale("id", "ID"));
+            String formattedTotal = formatCurrency.format(totalAmount);
+            form.getLabelPBulanan().setText(formattedTotal);
+
+            ps.close();
+            rs.close();
+        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(form, e.getMessage());
         }
     }
 }

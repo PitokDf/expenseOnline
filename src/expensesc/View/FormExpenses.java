@@ -60,6 +60,7 @@ public class FormExpenses extends javax.swing.JFrame {
             btnLogout.setBackground(Color.decode("#0C1F33"));
             cnt.tampiData();
             cnt.TBelanja();
+            cnt.bBulanan();
             balance();
             ls = new Luser();
         }
@@ -102,6 +103,8 @@ public class FormExpenses extends javax.swing.JFrame {
         labelBalance = new javax.swing.JLabel();
         labelerrror = new javax.swing.JLabel();
         nama = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        labelPBulanan = new javax.swing.JLabel();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,7 +221,7 @@ public class FormExpenses extends javax.swing.JFrame {
 
         jLabel5.setFont(new java.awt.Font("DialogInput", 3, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(210, 220, 230));
-        jLabel5.setText("Total Pengeluaran :");
+        jLabel5.setText("Total Pengeluaran   :");
 
         tblxpenses.setBackground(new java.awt.Color(210, 220, 230));
         tblxpenses.setFont(new java.awt.Font("Yu Gothic UI Semibold", 0, 12)); // NOI18N
@@ -300,11 +303,20 @@ public class FormExpenses extends javax.swing.JFrame {
         nama.setForeground(new java.awt.Color(210, 220, 230));
         nama.setText("Nama User");
 
+        jLabel10.setFont(new java.awt.Font("DialogInput", 3, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(210, 220, 230));
+        jLabel10.setText("Pengeluaran bulanan :");
+
+        labelPBulanan.setBackground(new java.awt.Color(18, 30, 49));
+        labelPBulanan.setFont(new java.awt.Font("DialogInput", 1, 14)); // NOI18N
+        labelPBulanan.setForeground(new java.awt.Color(234, 131, 40));
+        labelPBulanan.setText("pengeluaran bulanan");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -320,9 +332,10 @@ public class FormExpenses extends javax.swing.JFrame {
                             .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)))
                                 .addGap(31, 31, 31)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtJumlah)
@@ -330,10 +343,6 @@ public class FormExpenses extends javax.swing.JFrame {
                                     .addComponent(txtAmount)
                                     .addComponent(cboCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(labelHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -349,8 +358,16 @@ public class FormExpenses extends javax.swing.JFrame {
                                         .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
-                                .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(77, 77, 77)))
+                                .addComponent(btnImport, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel10))
+                                .addGap(26, 26, 26)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(labelPBulanan, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(labelHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(40, 40, 40)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
@@ -408,10 +425,14 @@ public class FormExpenses extends javax.swing.JFrame {
                             .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(labelHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelPBulanan, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30))
         );
 
@@ -438,6 +459,7 @@ public class FormExpenses extends javax.swing.JFrame {
                     balance();
                     cnt.tampiData();
                     cnt.cls();
+                    cnt.bBulanan();
 //                }else{
 //                    labelerrror.setText("Maaf Saldo Anda tidak cukup!!");
 //                }
@@ -452,6 +474,7 @@ public class FormExpenses extends javax.swing.JFrame {
                     balance();
                     cnt.tampiData();
                     cnt.cls();
+                    cnt.bBulanan();
                 }else{
                     labelerrror.setText("Maaf Saldo Anda tidak cukup!!");
                 }
@@ -466,6 +489,7 @@ public class FormExpenses extends javax.swing.JFrame {
             // TODO add your handling code here:
             cnt.delete();
             cnt.TBelanja();
+            cnt.bBulanan();
             balance();
             cnt.tampiData();
             cnt.cls();
@@ -563,6 +587,7 @@ public class FormExpenses extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cboCari;
     private javax.swing.JComboBox<String> cboCategory;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -576,6 +601,7 @@ public class FormExpenses extends javax.swing.JFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel labelBalance;
     private javax.swing.JLabel labelHarga;
+    private javax.swing.JLabel labelPBulanan;
     private javax.swing.JLabel labelerrror;
     private javax.swing.JLabel nama;
     private javax.swing.JTable tblxpenses;
@@ -633,6 +659,10 @@ public class FormExpenses extends javax.swing.JFrame {
 
     public JLabel getLabelerrror() {
         return labelerrror;
+    }
+
+    public JLabel getLabelPBulanan() {
+        return labelPBulanan;
     }
     
 }

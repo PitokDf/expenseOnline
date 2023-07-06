@@ -18,14 +18,14 @@ public class ConnDBO {
     public static Connection getConnection() {
         try {
             if (cn == null) {
-                String databaseURL = "jdbc:mysql://sql12.freesqldatabase.com/sql12623212";
-                String username = "sql12623212";
-                String password = "MF7Hy4Eten";
+                String databaseURL = "jdbc:mysql://www.db4free.net/xpenses";
+                String username = "pitokyaa";
+                String password = "5012a87c";
                 cn = DriverManager.getConnection(databaseURL, username, password);
                 System.out.println("berhasil");
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "periksa koneksi internet anda!!");
+            JOptionPane.showMessageDialog(null, "periksa koneksi internet anda!!"+e);
         }
         return cn;
     }
